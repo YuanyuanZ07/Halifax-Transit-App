@@ -143,6 +143,31 @@ Uses:
 ---
 
 ## ▶️ Running the Project
+Clone the repository:
+git clone https://github.com/YuanyuanZ07/Halifax-Transit-App.git
 
+Open in Android Studio and sync Gradle.
+
+### Mapbox Setup
+
+Create the file:
+
+app/src/main/res/values/mapbox_access_token.xml
+
+Add your token:
+
+<resources> <string name="mapbox_access_token">YOUR_TOKEN_HERE</string> </resources> ```
+
+Run on emulator or Android device.
+
+🔐 Note
+
+The Mapbox access token is not included for security reasons.
+
+👩‍💻 Author
+
+Yuanyuan Zhou
+NSCC IT Programming Student
+Halifax, Nova Scotia
 Clone the repository:
 
