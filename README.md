@@ -20,6 +20,7 @@ Routes Screen (Route selection)
 
 📱 Screens & Functionality
 1. Splash Screen
+   <img width="1080" height="2400" alt="Splash" src="https://github.com/user-attachments/assets/bb9eb345-130b-4b61-bdb1-7de10913a4d7" />
 
 The app launches with a branded splash screen displaying the HT Transit logo and app tagline.
 
@@ -34,6 +35,7 @@ Prepare navigation state
 After initialization, the user is automatically redirected to the main map interface.
 
 2. Map Screen (Main Interface)
+   <img width="1080" height="2400" alt="Screenshot_20260215_090446" src="https://github.com/user-attachments/assets/7aabef9e-ba01-4d61-8f91-1ca8aaedc030" />
 
 The Map screen is the primary interface of the application.
 
@@ -56,6 +58,7 @@ When a route is selected from the Routes screen, the corresponding bus marker is
 This demonstrates screen-to-screen state synchronization.
 
 3. Routes Screen
+<img width="1080" height="2400" alt="Screenshot_20260215_090331" src="https://github.com/user-attachments/assets/bd3385f2-3a66-42c9-87d9-3014438534d9" />
 
 The Routes screen allows users to browse and select transit routes.
 
@@ -80,6 +83,8 @@ User selects a route (e.g., Route 6 – Portland Hills)
 Selection is saved locally (Room database)
 
 Map screen observes the data
+<img width="1080" height="2400" alt="Screenshot_20260215_090521" src="https://github.com/user-attachments/assets/576991bc-2c16-4645-90fb-54560e1add46" />
+
 
 Corresponding bus icon becomes highlighted
 
