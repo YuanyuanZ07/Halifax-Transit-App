@@ -1,208 +1,148 @@
-Halifax Transit Android App 
+# 🚌 Halifax Transit Android App
 
-A Kotlin-based Android mobile application that visualizes public transit activity in Halifax on an interactive map.
-Users can browse available bus routes, select a route, and immediately see the selected bus highlighted on the map.
+An Android application built with **Kotlin** that visualizes Halifax public transit routes on an interactive map.
 
-This project was developed as a portfolio project to demonstrate Android development skills, including MVVM architecture, local persistence, and multi-screen communication.
+Users can browse bus routes, select a route, and immediately see the selected bus highlighted on the map.  
+The project demonstrates real mobile app patterns including **MVVM architecture, local persistence, and multi-screen state synchronization**.
 
-✨ Overview
+---
 
-The application simulates a lightweight transit-tracking companion app.
-It combines a map interface with a route browser and demonstrates how different screens share state using ViewModel and local storage.
+## ✨ Project Purpose
 
-The app contains three primary screens:
+This app simulates a lightweight transit-tracking companion application.
 
-Splash Screen (App startup)
+It combines:
+- A map interface
+- A route selection screen
+- Persistent user selection
 
-Map Screen (Transit visualization)
+The focus of the project is how multiple screens share and react to the same data source.
 
-Routes Screen (Route selection)
+---
 
-📱 Screens & Functionality
-1. Splash Screen
-   <img width="1080" height="2400" alt="Splash" src="https://github.com/user-attachments/assets/bb9eb345-130b-4b61-bdb1-7de10913a4d7" />
+## 📱 Application Screens
 
-The app launches with a branded splash screen displaying the HT Transit logo and app tagline.
+### 🚀 Splash Screen
+<img width="1080" height="2400" alt="Splash" src="https://github.com/user-attachments/assets/bb9eb345-130b-4b61-bdb1-7de10913a4d7" />
 
-Purpose:
-
-Simulate real production app startup
-
-Load map resources
-
-Prepare navigation state
-
-After initialization, the user is automatically redirected to the main map interface.
-
-2. Map Screen (Main Interface)
-   <img width="1080" height="2400" alt="Screenshot_20260215_090446" src="https://github.com/user-attachments/assets/7aabef9e-ba01-4d61-8f91-1ca8aaedc030" />
-
-The Map screen is the primary interface of the application.
-
-Features:
-
-Interactive Mapbox map
-
-Displays user location
-
-Displays multiple bus markers
-
-Route highlighting based on user selection
-
-Real-time UI update when route changes
-
-Each bus marker represents a transit route operating in Halifax.
-
-When a route is selected from the Routes screen, the corresponding bus marker is highlighted on the map so the user can visually identify it.
-
-This demonstrates screen-to-screen state synchronization.
-
-3. Routes Screen
-<img width="1080" height="2400" alt="Screenshot_20260215_090331" src="https://github.com/user-attachments/assets/bd3385f2-3a66-42c9-87d9-3014438534d9" />
-
-The Routes screen allows users to browse and select transit routes.
-
-Functions:
-
-Displays list of available routes
-
-Tap a route to select it
-
-Selected route is persisted locally
-
-Selected routes are stored locally using Room Database.
-
-When the user returns to the Map screen, the application reads the stored route and updates the highlighted bus automatically.
-
-🔄 Screen Interaction Flow
-
-User opens the Routes page
-
-User selects a route (e.g., Route 6 – Portland Hills)
-
-Selection is saved locally (Room database)
-
-Map screen observes the data
-<img width="1080" height="2400" alt="Screenshot_20260215_090521" src="https://github.com/user-attachments/assets/576991bc-2c16-4645-90fb-54560e1add46" />
-
-
-Corresponding bus icon becomes highlighted
-
-This demonstrates:
-
-Shared ViewModel usage
-
-Observable UI state
-
-Persistence across navigation
-
-🧱 Architecture
-
-The application follows the MVVM (Model-View-ViewModel) architecture.
-
-UI Layer (ui)
-
-Activities and UI components:
-
-Map screen
-
-Routes screen
-
-Splash screen
-
-Responsible for rendering UI and user interaction.
-
-ViewModel Layer
-
-Handles UI state and communication between screens.
+Displayed at startup to initialize resources and prepare navigation state.
 
 Responsibilities:
+- App startup simulation
+- Map initialization
+- Navigation preparation
 
-Observes selected route
+After loading, the app automatically navigates to the main map screen.
 
-Notifies map to update highlighted marker
+---
 
-Connects UI to local data source
+### 🗺️ Map Screen (Main Interface)
+<img width="1080" height="2400" alt="Map Screen" src="https://github.com/user-attachments/assets/7aabef9e-ba01-4d61-8f91-1ca8aaedc030" />
 
-Data Layer (data)
+The main user interface showing transit activity.
 
-Handles local persistence and data management.
+**Features**
+- Interactive Mapbox map
+- User location display
+- Multiple bus markers
+- Dynamic route highlighting
+
+When a route is selected from the Routes screen, the corresponding bus marker becomes highlighted.
+
+This demonstrates **live UI updates based on shared application state**.
+
+---
+
+### 🧭 Routes Screen
+<img width="1080" height="2400" alt="Routes Screen" src="https://github.com/user-attachments/assets/bd3385f2-3a66-42c9-87d9-3014438534d9" />
+
+Allows users to browse and select available transit routes.
+
+**Functions**
+- Display route list
+- Select a route
+- Persist the selection
+
+The selected route is stored locally using Room Database.
+
+When the user returns to the Map screen, the highlighted bus updates automatically.
+
+---
+
+## 🔄 Screen Interaction Flow
+
+1. User opens Routes screen  
+2. User selects a route  
+3. Selection saved to local database (Room)  
+4. ViewModel observes data change  
+5. Map UI updates and highlights corresponding bus
+
+<img width="1080" height="2400" alt="Flow" src="https://github.com/user-attachments/assets/576991bc-2c16-4645-90fb-54560e1add46" />
+
+**Concepts demonstrated**
+- Shared ViewModel
+- Observable UI state
+- Persistence across navigation
+
+---
+
+## 🧱 Architecture
+
+The app follows the **MVVM (Model-View-ViewModel)** pattern.
+
+### UI Layer
+Activities and screens:
+- Splash screen
+- Map screen
+- Routes screen
+
+Responsible for rendering UI and handling user interaction.
+
+### ViewModel Layer
+Handles communication between screens.
+
+Responsibilities:
+- Observe selected route
+- Notify map to update markers
+- Provide lifecycle-safe data to UI
+
+### Data Layer
+Handles local data persistence.
 
 Uses:
+- Room Database
+- Entities
+- DAO queries
 
-Room Database
+---
 
-Entity models
+## 🛠 Tech Stack
 
-DAO queries
+**Language:** Kotlin  
+**IDE:** Android Studio  
+**Architecture:** MVVM  
+**Database:** Room  
+**Map SDK:** Mapbox
 
-🛠 Tech Stack
+**Android Jetpack Components**
+- ViewModel
+- LiveData
+- Navigation Component
 
-Language: Kotlin
+---
 
-IDE: Android Studio
+## 🧠 Key Skills Demonstrated
 
-Architecture: MVVM
+- Multi-screen Android navigation
+- Shared ViewModel communication
+- Local database persistence (Room)
+- Reactive UI updates
+- Map rendering and marker manipulation
+- Clean architecture separation
 
-Database: Room
+---
 
-Map SDK: Mapbox
+## ▶️ Running the Project
 
-Android Jetpack:
+Clone the repository:
 
-ViewModel
-
-LiveData
-
-Navigation Components
-
-🧠 Key Concepts Demonstrated
-
-This project demonstrates understanding of:
-
-Android Activity navigation
-
-MVVM separation of concerns
-
-Persistent local storage
-
-UI state observation
-
-Multi-screen communication
-
-Map rendering & marker manipulation
-
-▶️ How to Run
-
-Clone the repository
-
-git clone https://github.com/YuanyuanZ07/Halifax-Transit-App.git
-
-
-Open the project in Android Studio
-
-Create a Mapbox token
-
-Create the following file:
-
-app/src/main/res/values/mapbox_access_token.xml
-
-
-Add:
-
-<resources>
-    <string name="mapbox_access_token">YOUR_TOKEN_HERE</string>
-</resources>
-
-
-Build and run on emulator or Android device
-
-📌 Notes
-
-The Mapbox access token is not included in the repository for security reasons.
-
-👩‍💻 Author
-
-Yuanyuan Zhou
-NSCC IT Programming Student
-Halifax, Nova Scotia
